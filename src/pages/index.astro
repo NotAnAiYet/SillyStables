@@ -1,0 +1,23 @@
+---
+import { LAST_UPDATED } from '../consts';
+
+const lastUpdated = new Date(LAST_UPDATED).toLocaleString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<title>UNDER CONSTRUCTION</title>
+	</head>
+	<body>
+		<h1>Silly Stables - Under Construction</h1>
+		<p>Last updated: <time>{lastUpdated}</time></p>
+	</body>
+</html>

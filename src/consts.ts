@@ -1,0 +1,1 @@
+export const LAST_UPDATED = "2026-08-27"; // Stamped on GitHub Pages deploy and local zip release
