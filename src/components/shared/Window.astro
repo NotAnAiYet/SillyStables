@@ -17,7 +17,7 @@ const colors = {
 ---
 <div data-window={windowId} class="window pb-2">
     <div class="window-header px-1 pb-1 d-flex align-items-center justify-content-between">
-        <div>
+        <div class="pe-4">
             {icon && <i class={`bi ${icon} me-2`}></i>}
             <strong>{title}</strong>
         </div>
@@ -39,6 +39,12 @@ const colors = {
 </div>
 
 <style define:vars={colors}>
+    @media (min-width: 992px) {
+        .window {
+            position: absolute;
+        }
+    }
+
     .window {
         border: 5px solid var(--borderColor);
         border-radius: 5px;
@@ -48,6 +54,7 @@ const colors = {
 
     .window-header {
         background-color: var(--borderColor);
+        cursor: move;
         color: var(--headerTextColor);
     }
 
