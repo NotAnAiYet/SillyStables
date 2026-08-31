@@ -22,11 +22,11 @@ const colors = {
             {icon && <i class={`bi ${icon} me-2`}></i>}
             <strong>{title}</strong>
         </div>
-        <div class="d-flex gap-1 align-items-center">
-            <button disabled class="btn btn-sm btn-light" aria-hidden="true">
+        <div id="windowButtons" class="d-flex gap-1 align-items-center">
+            <button class="btn btn-sm btn-light fakeDisabled" aria-hidden="true">
                 <i class="bi bi-dash-lg wk-bold"></i>
             </button>
-            <button disabled class="btn btn-sm btn-light" aria-hidden="true">
+            <button class="btn btn-sm btn-light fakeDisabled" aria-hidden="true">
                 <i class="bi bi-square wk-bold"></i>
             </button>
             <button class="btn btn-sm btn-light close-btn" data-close-window={windowId} aria-hidden="true">
@@ -69,5 +69,8 @@ const colors = {
         background-color: var(--closeButtonColor)!important;
         color: var(--buttonColor);
         opacity: 1;
+    }
+    #windowButtons .fakeDisabled{
+        pointer-events: none;
     }
 </style>
