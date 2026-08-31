@@ -2,9 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AboutMe from '../components/AboutMe.astro';
 import LastUpdated from '../components/LastUpdated.astro';
+import DesktopIcons from '../components/DesktopIcons.astro';
 ---
 <BaseLayout title="Silly Stables - Under Construction">
-   <div class="row g-4">
+   <div class="row pt-2 g-4">
     <div class="col-lg-8 d-flex flex-column gap-4">
       <AboutMe />
     </div>
@@ -12,4 +13,10 @@ import LastUpdated from '../components/LastUpdated.astro';
       <LastUpdated />
     </aside>
   </div>
+  <DesktopIcons />
 </BaseLayout>
+
+<script>
+  import { WindowManager } from '../lib/WindowManager.ts';
+  new WindowManager();
+</script>
