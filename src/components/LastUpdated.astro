@@ -1,0 +1,13 @@
+---
+import { LAST_UPDATED } from '../consts';
+import Window from './shared/Window.astro';
+
+const lastUpdated = new Date(LAST_UPDATED).toLocaleString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+---
+<Window title="Last Updated" icon="bi-clock">
+  <p>Last updated: <time>{lastUpdated}</time></p>
+</Window>

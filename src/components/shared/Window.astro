@@ -1,0 +1,62 @@
+---
+interface Props {
+    title: string;
+    icon?: string;
+}
+
+const { title, icon } = Astro.props;
+
+const colors = {
+    borderColor: '#0056e4',
+    backgroundColor: '#fff',
+    headerTextColor: '#fff',
+    buttonColor: '#fff',
+    closeButtonColor: '#dd5022',
+};
+---
+<div class="window pb-2">
+    <div class="window-header px-1 pb-1 d-flex align-items-center justify-content-between">
+        <div>
+            {icon && <i class={`bi ${icon} me-2`}></i>}
+            <strong>{title}</strong>
+        </div>
+        <div class="d-flex gap-1 align-items-center">
+            <button class="btn btn-sm btn-light" aria-hidden="true">
+                <i class="bi bi-dash"></i>
+            </button>
+            <button class="btn btn-sm btn-light" aria-hidden="true">
+                <i class="bi bi-square"></i>
+            </button>
+            <button class="btn btn-sm btn-light close-btn" aria-hidden="true">
+                <i class="bi bi-x"></i>
+            </button>
+        </div>
+    </div>
+    <div class="window-content px-2">
+        <slot />
+    </div>
+</div>
+
+<style define:vars={colors}>
+    .window {
+        border: 5px solid var(--borderColor);
+        border-radius: 5px;
+        background-color: var(--backgroundColor);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .window-header {
+        background-color: var(--borderColor);
+        color: var(--headerTextColor);
+    }
+
+    .window-header div .btn {
+        color: var(--buttonColor);
+        background-color: var(--borderColor);
+    }
+    .close-btn {
+        background-color: var(--closeButtonColor)!important;
+        color: var(--buttonColor);
+        opacity: 1;
+    }
+</style>
