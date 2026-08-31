@@ -3,9 +3,10 @@ interface Props {
     title: string;
     windowId?: string;
     icon?: string;
+    maxWidth?: string;
 }
 
-const { title, windowId, icon } = Astro.props;
+const { title, windowId, icon, maxWidth } = Astro.props;
 
 const colors = {
     borderColor: '#0056e4',
@@ -38,10 +39,11 @@ const colors = {
     </div>
 </div>
 
-<style define:vars={colors}>
+<style define:vars={{...colors, maxWidth}}>
     @media (min-width: 992px) {
         .window {
             position: absolute;
+            max-width: var(--maxWidth);
         }
     }
 

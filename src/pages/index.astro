@@ -5,16 +5,25 @@ import LastUpdated from '../components/LastUpdated.astro';
 import DesktopIcons from '../components/DesktopIcons.astro';
 ---
 <BaseLayout title="Silly Stables - Under Construction">
-   <div class="row pt-2 g-4">
+  <DesktopIcons />
+   <div class="main-content row pt-2 g-4">
     <div class="col-lg-8 d-flex flex-column gap-4">
       <AboutMe />
     </div>
-    <aside class="col-lg-4">
+    <aside class="d-flex  flex-row-reverse col-lg-4">
       <LastUpdated />
     </aside>
   </div>
-  <DesktopIcons />
 </BaseLayout>
+
+<style>
+    @media (min-width: 992px) {
+        .main-content {
+          margin-top: 1rem;
+        }
+
+    }
+</style>
 
 <script>
   import { WindowManager } from '../lib/WindowManager.ts';
