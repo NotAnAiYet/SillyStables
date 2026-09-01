@@ -9,6 +9,8 @@ type Win = {
   title: string;
 };
 
+const backgroundColor = '#0056e4';
+
 export class WinBoxController {
     private windows = new Map<string, Win>();
 
@@ -43,7 +45,7 @@ export function initWinBoxStartup(windows: Map<string, Win> = new Map()) {
         if (defaultOpen.has(id)) {
             new WinBox({
                 title: win.title,
-                background: '#0056e4',
+                background: backgroundColor,
                 x: win.x,
                 y: win.y,
                 width: win.width + 'px',
@@ -56,7 +58,7 @@ export function initWinBoxStartup(windows: Map<string, Win> = new Map()) {
         openBtn?.addEventListener('click', () => {
             new WinBox({
                 title: win.title,
-                background: '#0056e4',
+                background: backgroundColor,
                 x: win.x,
                 y: win.y,
                 width: win.width + 'px',

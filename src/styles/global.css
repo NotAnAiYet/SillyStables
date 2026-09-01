@@ -2,3 +2,27 @@
     font-weight: bold;
     -webkit-text-stroke: 1px;
 }
+
+
+/* Custom styles for WinBox windows */
+.wb-close{
+    background-color: #dd5022;
+}
+
+.wb-control span {
+    border: 0.1em solid #fff;
+}
+
+.wb-control{
+    display: flex;
+    gap: 0.3em;
+    padding: 0.3em;
+}
+
+.wb-body {
+    border: 0.4em solid #0056e4;
+}
+
+.wb-close {
+    background-position: center!important;
+}
