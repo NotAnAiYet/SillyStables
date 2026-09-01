@@ -16,6 +16,7 @@ const colors = {
     closeButtonColor: '#dd5022',
 };
 ---
+
 <div data-window={windowId} class="window pb-2">
     <div class="window-header px-1 pb-1 d-flex align-items-center justify-content-between">
         <div class="pe-4">
@@ -29,7 +30,7 @@ const colors = {
             <button class="btn btn-sm btn-light fakeDisabled" aria-hidden="true">
                 <i class="bi bi-square wk-bold"></i>
             </button>
-            <button class="btn btn-sm btn-light close-btn" data-close-window={windowId} aria-hidden="true">
+            <button class="btn btn-sm btn-light close-btn fakeDisabled" aria-hidden="true">
                 <i class="bi bi-x-lg wk-bold"></i>
             </button>
         </div>
@@ -40,13 +41,6 @@ const colors = {
 </div>
 
 <style define:vars={{...colors, maxWidth}}>
-    @media (min-width: 992px) {
-        .window {
-            position: absolute;
-            max-width: var(--maxWidth);
-        }
-    }
-
     .window {
         border: 5px solid var(--borderColor);
         border-radius: 5px;
@@ -56,7 +50,6 @@ const colors = {
 
     .window-header {
         background-color: var(--borderColor);
-        cursor: move;
         color: var(--headerTextColor);
     }
 
