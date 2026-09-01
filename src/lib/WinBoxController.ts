@@ -33,7 +33,7 @@ export class WinBoxController {
             });
             el.hidden = true;
         }
-        
+
         initWinBoxStartup(this.windows);
     }
 }
@@ -44,6 +44,7 @@ export function initWinBoxStartup(windows: Map<string, Win> = new Map()) {
     windows.forEach((win, id) => {
         if (defaultOpen.has(id)) {
             new WinBox({
+                id: id+'-winbox',
                 title: win.title,
                 background: backgroundColor,
                 x: win.x,
@@ -56,7 +57,12 @@ export function initWinBoxStartup(windows: Map<string, Win> = new Map()) {
         // Add event listeners to open button for this window
         const openBtn = document.querySelector<HTMLElement>(`[data-open-window="${id}"]`);
         openBtn?.addEventListener('click', () => {
+            if (document.getElementById(id+'-winbox')) {
+                return;
+            }
+            
             new WinBox({
+                id: id+'-winbox',
                 title: win.title,
                 background: backgroundColor,
                 x: win.x,
