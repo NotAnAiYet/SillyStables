@@ -3,6 +3,10 @@
     -webkit-text-stroke: 1px;
 }
 
+body, .wb-title {
+    font-family: "DotGothic16", "Courier New", Courier, monospace !important;
+}
+
 
 /* Custom styles for WinBox windows */
 .wb-close{

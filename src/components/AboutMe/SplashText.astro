@@ -1,0 +1,50 @@
+---
+---
+<span class="splash-overlay">
+    <span class="splash-text" aria-hidden="true">If you read this, then the splash text is not working correctly.</span>
+</span>
+
+
+
+<script>
+    import splashes from '../../data/splashes.json';
+    
+    if (Array.isArray(splashes) && splashes.length) {
+        const idx = Math.floor(Math.random() * splashes.length);
+        const text = splashes[idx];
+        document.querySelectorAll('.splash-text').forEach((el) => {
+            el.textContent = text;
+        });
+    }
+</script>
+
+
+<style>
+    .splash-overlay {
+        position: relative;
+    }
+    .splash-text {
+        --splash-shift: -50%;
+        display: inline-block;
+        position: absolute;
+        left: 2em;
+        top: 0.1em;
+        color: #ffec3d;
+        font-weight: bold;
+        font-size: clamp(0.75rem, 2.75vw, 1.25rem);
+        text-shadow: 2px 2px 0 #3e3e3e, 0 0 10px #fff200;
+        transform: translate(var(--splash-shift), 0) rotate(-20deg);
+        transform-origin: center center;
+        animation: splash-pulse 1.6s infinite cubic-bezier(0.4,0,0.2,1);
+        user-select: none;
+        white-space: nowrap;
+    }
+
+    @keyframes splash-pulse {
+        0% { transform: translate(var(--splash-shift), 0) rotate(-20deg) scale(0.96); }
+        25% { transform: translate(var(--splash-shift), 0) rotate(-20deg) scale(1.04); }
+        50% { transform: translate(var(--splash-shift), 0) rotate(-20deg) scale(0.96); }
+        75% { transform: translate(var(--splash-shift), 0) rotate(-20deg) scale(1.04); }
+        100% { transform: translate(var(--splash-shift), 0) rotate(-20deg) scale(0.96); }
+    }
+</style>
