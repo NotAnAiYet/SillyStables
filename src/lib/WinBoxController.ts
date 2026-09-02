@@ -74,6 +74,7 @@ function initWindow(id: string, win: Win) {
         width: win.width + 'px',
         height: win.height + 'px',
         mount: win.content.cloneNode(true),
+        border: "0.4em"
     });
 
     if (iconMap[id]) {
