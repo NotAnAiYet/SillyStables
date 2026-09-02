@@ -1,0 +1,39 @@
+---
+import shortcutOverlay from '../../assets/media/icons/shortcut.png';
+
+interface Props {
+    icon: string;
+    windowId: string;
+    text: string;
+    alt?: string;
+    isShortcut?: boolean;
+}
+
+const { icon, windowId, alt, text, isShortcut } = Astro.props;
+---
+
+<button type="button" data-open-window={windowId}>
+        {isShortcut ? <img class="shortcut-overlay" src={shortcutOverlay.src} width="64" height="64" aria-hidden="true" /> : null}
+        <img src={icon} width="64" height="64" alt={alt} />
+    {text}
+</button>
+
+
+<style>
+    img.shortcut-overlay {
+        position: absolute;
+        top: 0;
+    }
+
+    button{
+        position: relative;
+        background: none;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-shadow: 1px 1px 2px black;
+    }
+</style>

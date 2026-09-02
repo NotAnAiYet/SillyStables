@@ -1,6 +1,6 @@
 import WinBox from 'winbox/src/js/winbox.js';
-import globe from '../assets/media/icons/globe.svg';
-import clock from '../assets/media/icons/clock.svg';
+import ie from '../assets/media/icons/ie.ico';
+import textDoc from '../assets/media/icons/Text-Doc.png';
 
 type Win = {
     content: HTMLElement;
@@ -14,8 +14,8 @@ type Win = {
 const backgroundColor = '#0056e4';
 
 const iconMap: Record<string, string> = {
-    "about": globe.src,
-    "last-updated": clock.src,
+    "about": ie,
+    "last-updated": textDoc.src,
 };
 
 export class WinBoxController {
