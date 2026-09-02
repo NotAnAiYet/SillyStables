@@ -26,3 +26,7 @@
 .wb-close {
     background-position: center!important;
 }
+
+.wb-icon {
+    filter: invert(100%); /* white icons */
+}
