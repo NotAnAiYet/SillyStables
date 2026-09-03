@@ -7,6 +7,10 @@ body, .wb-title {
     font-family: "DotGothic16", "Courier New", Courier, monospace !important;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 a {
     color: initial;
 }
