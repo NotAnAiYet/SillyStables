@@ -15,11 +15,13 @@ const backgroundColor = '#0056e4';
 
 const iconMap: Record<string, string> = {
     "about": ie,
+    "webring": ie,
     "last-updated": textDoc.src,
 };
 
 export class WinBoxController {
     private windows = new Map<string, Win>();
+    private toBeDeleted: HTMLElement[] = [];
 
     constructor(root: ParentNode = document) {
         for (const el of root.querySelectorAll<HTMLElement>('[data-window]')) {
@@ -38,7 +40,12 @@ export class WinBoxController {
                 height: el.offsetHeight,
                 title: title
             });
-            el.hidden = true;
+
+            this.toBeDeleted.push(el);
+        }
+
+        for (const el of this.toBeDeleted) {
+            el.remove();
         }
 
         initWinBoxStartup(this.windows);
@@ -46,7 +53,7 @@ export class WinBoxController {
 }
 
 export function initWinBoxStartup(windows: Map<string, Win> = new Map()) {
-    const defaultOpen: ReadonlySet<string> = new Set(['about', 'last-updated']);
+    const defaultOpen: ReadonlySet<string> = new Set(['about', 'last-updated', 'webring']);
 
     windows.forEach((win, id) => {
         if (defaultOpen.has(id)) {
