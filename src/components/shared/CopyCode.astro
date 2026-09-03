@@ -1,0 +1,75 @@
+---
+interface Props {
+    maxSize: number;
+    code: string;
+}
+
+const { maxSize, code } = Astro.props;
+---
+
+<copy-code class="copy-code mx-1">
+  <pre><code>{code}</code></pre>
+  <button type="button" class="copy-code-btn">Copy</button>
+</copy-code>
+
+<script>
+  class CopyCodeEl extends HTMLElement {
+    #bound = false;
+
+    connectedCallback() {
+      if (this.#bound) return;
+      this.#bound = true;
+
+      const button = this.querySelector<HTMLButtonElement>('.copy-code-btn');
+      const code = this.querySelector('code');
+      if (!button || !code) return;
+
+      button.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(code.textContent ?? '');
+          button.textContent = 'Copied!';
+        } catch {
+          button.textContent = 'Failed';
+        }
+        window.setTimeout(() => {
+          button.textContent = 'Copy';
+        }, 1500);
+      });
+    }
+  }
+
+  if (!customElements.get('copy-code')) {
+    customElements.define('copy-code', CopyCodeEl);
+  }
+</script>
+
+<style define:vars={{ copyMaxSize: `${maxSize}ch` }}>
+  .copy-code {
+    display: inline-flex;
+    align-items: stretch;
+    max-width: 100%;
+    vertical-align: middle;
+    gap: 0.5em;
+
+    background-color: rgb(30, 27, 80);
+    border: 3px inset rgb(50, 46, 139);
+    box-shadow: 2px 2px 0 #000;
+    color: #fff;
+  }
+
+  .copy-code-btn { 
+    color: #ffae00;
+    background: rgb(94, 89, 187);
+    border: none;
+    cursor: pointer;
+
+  }
+
+  .copy-code pre {
+    width: max-content;
+    max-width: var(--copyMaxSize);
+    overflow: auto;
+    margin: 0;
+    padding: 0.5rem 0.6rem;
+  }
+</style>

@@ -1,0 +1,81 @@
+---
+import SplashText from "./SplashText.astro";
+---
+
+<div class="d-flex flex-column align-items-center">
+    <p class="subtitle mb-1">~ Horsing around since 2026 ~</p>
+    <div class="site-title-wrapper mb-2">
+    <h1 class="site-title m-0">
+        <span class="title-graphic" aria-hidden="true">✦</span>
+        Silly Stables
+        <span class="title-graphic" aria-hidden="true">✦</span>
+    </h1>
+    </div>
+    <p class="tagline mb-0">
+    <span class="tagline-inner">
+        Bad programmer · Horse enthusiast · Real Person
+        <SplashText />
+    </span>
+    </p>
+</div>
+
+<style>
+    .subtitle {
+        color: #fff;
+        text-shadow: 2px 2px 0 #000, 0 0 12px rgba(255, 0, 200, 0.8);
+    }
+
+    .site-title {
+        font-family: "Press Start 2P", cursive;
+        font-size: clamp(0.85rem, 3vw, 1.35rem);
+        line-height: 1.6;
+        color: #fffde7;
+        text-shadow:
+            3px 3px 0 #ff006e,
+            6px 6px 0 #3a0ca3,
+            0 0 20px rgba(0, 255, 200, 0.5);
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5ch;
+    }
+
+    .title-graphic {
+        display: inline-block;
+        color: #ffea00;
+        animation: twinkle 1.8s ease-in-out infinite;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .title-graphic:last-child {
+        animation-delay: 0.9s;
+    }
+
+    @keyframes twinkle {
+        0%, 100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.5;
+            transform: scale(1.2);
+        }
+    }
+
+    .tagline {
+        display: block;
+        position: relative;
+        z-index: 1;
+        font-size: clamp(0.75rem, 2.75vw, 1.25rem);
+        color: #e0f7fa;
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    .tagline-inner {
+        display: inline-block;
+        position: relative;
+    }
+
+</style>

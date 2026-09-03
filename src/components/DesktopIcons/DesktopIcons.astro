@@ -1,0 +1,21 @@
+---
+ import url from '../../assets/media/icons/url.png';
+ import textDoc from '../../assets/media/icons/Text-Doc.png';
+ import Wordpad from '../../assets/media/icons/Wordpad.png'
+ import DesktopIcon from './DesktopIcon.astro';
+---
+
+<div class="desktop-icons d-flex flex-row gap-2">
+    <DesktopIcon icon={url.src} windowId="about" text="About Me" alt="Internet Explorer" isShortcut />
+    <DesktopIcon icon={url.src} windowId="guestbook" text="Guestbook" alt="Internet Explorer" isShortcut />
+    <DesktopIcon icon={Wordpad.src} windowId="favorites" text="Favorites" alt="Wordpad" />
+    <DesktopIcon icon={textDoc.src} windowId="last-updated" text="Last Updated" alt="Last Updated" />
+</div>
+
+<style>
+    @media (max-width: 992px) {
+        .desktop-icons button {
+            display: none;
+        }
+    }
+</style>

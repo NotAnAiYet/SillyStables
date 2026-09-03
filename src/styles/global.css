@@ -1,0 +1,35 @@
+.wk-bold {
+    font-weight: bold;
+    -webkit-text-stroke: 1px;
+}
+
+body, .wb-title {
+    font-family: "DotGothic16", "Courier New", Courier, monospace !important;
+}
+
+a {
+    color: initial;
+}
+
+/* Custom styles for WinBox windows */
+.wb-close{
+    background-color: #dd5022;
+}
+
+.wb-control span {
+    border: 0.1em solid #fff;
+}
+
+.wb-control{
+    display: flex;
+    gap: 0.3em;
+    padding: 0.3em;
+}
+
+.wb-close {
+    background-position: center!important;
+}
+
+.wb-body > .window-content {
+    height: 100%;
+}

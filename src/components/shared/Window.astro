@@ -1,0 +1,87 @@
+---
+
+interface Props {
+    title: string;
+    windowId?: string;
+    icon?: string;
+    noPadding?: boolean;
+}
+
+const { title, windowId, icon, noPadding } = Astro.props;
+
+const colors = {
+    borderColor: '#0056e4',
+    backgroundColor: '#fff',
+    headerTextColor: '#fff',
+    buttonColor: '#fff',
+    closeButtonColor: '#dd5022',
+};
+---
+
+<div data-window={windowId} class="window">
+    <div class="window-header px-1 pb-1 d-flex align-items-center justify-content-between">
+        <div class="pe-4">
+            {icon && <i class={`bi ${icon} me-2`}></i>}
+            <strong>{title}</strong>
+        </div>
+        <div id="windowButtons" class="d-flex gap-1 align-items-center">
+            <button class="btn btn-sm btn-light fakeDisabled" aria-hidden="true">
+                <i class="bi bi-dash-lg wk-bold"></i>
+            </button>
+            <button class="btn btn-sm btn-light fakeDisabled" aria-hidden="true">
+                <i class="bi bi-square wk-bold"></i>
+            </button>
+            <button class="btn btn-sm btn-light close-btn fakeDisabled" aria-hidden="true">
+                <i class="bi bi-x-lg wk-bold"></i>
+            </button>
+        </div>
+    </div>
+    <div class:list={['window-content', { 'px-2 pb-2': !noPadding, 'window-content-fill': noPadding }]}>
+        <slot />
+    </div>
+</div>
+
+<style define:vars={colors}>
+    .window {
+        border: 5px solid var(--borderColor);
+        border-radius: 5px;
+        background-color: var(--backgroundColor);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+    }
+
+    .window-content {
+        position: relative;
+        isolation: isolate;
+    }
+
+    .window-content-fill {
+        min-height: 25em;
+        overflow: hidden;
+    }
+
+    .window-content, .window-content-fill {
+        background-color: #cecbb7;
+    }
+
+    .window-header {
+        position: relative;
+        z-index: 1;
+        background-color: var(--borderColor);
+        color: var(--headerTextColor);
+    }
+
+    .window-header div .btn {
+        color: var(--buttonColor);
+        background-color: var(--borderColor);
+    }
+
+    .close-btn {
+        background-color: var(--closeButtonColor)!important;
+        color: var(--buttonColor);
+        opacity: 1;
+    }
+    #windowButtons .fakeDisabled{
+        pointer-events: none;
+    }
+</style>

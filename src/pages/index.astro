@@ -1,23 +1,42 @@
 ---
-import { LAST_UPDATED } from '../consts';
-
-const lastUpdated = new Date(LAST_UPDATED).toLocaleString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
+import BaseLayout from '../layouts/BaseLayout.astro';
+import About from '../components/About/About.astro';
+import LastUpdated from '../components/LastUpdated.astro';
+import Webring from '../components/Webring.astro';
+import Guestbook from '../components/Guestbook.astro';
+import Favorites from '../components/Favorites.astro';
+import DesktopIcons from '../components/DesktopIcons/DesktopIcons.astro';
+import 'winbox/dist/css/winbox.min.css';
 ---
+<BaseLayout title="Silly Stables ~ Welcome">
+  <DesktopIcons />
+  <Webring />
+   <div class="main-content row pt-2 g-4">
+    <div class="col-lg-8 d-flex flex-column gap-4">
+      <About />
+      <Favorites />
+    </div>
+    <aside class="d-flex  flex-column col-lg-4 gap-4">
+      <Guestbook />
+      <LastUpdated />
+    </aside>
+  </div>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<title>UNDER CONSTRUCTION</title>
-	</head>
-	<body>
-		<h1>Silly Stables - Under Construction</h1>
-		<p>Last updated: <time>{lastUpdated}</time></p>
-	</body>
-</html>
+  <Fragment slot="scripts">
+    <script src="https://louisabraham.github.io/nekojs/neko.js" data-autostart></script>
+  </Fragment>
+</BaseLayout>
+
+<style>
+    @media (min-width: 992px) {
+        .main-content {
+          margin-top: 1rem;
+        }
+
+    }
+</style>
+
+<script>
+    import { WinBoxController } from '../lib/WinBoxController.ts';
+    new WinBoxController();
+</script>
