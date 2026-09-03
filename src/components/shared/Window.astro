@@ -4,11 +4,10 @@ interface Props {
     title: string;
     windowId?: string;
     icon?: string;
-    maxWidth?: string;
     noPadding?: boolean;
 }
 
-const { title, windowId, icon, maxWidth, noPadding } = Astro.props;
+const { title, windowId, icon, noPadding } = Astro.props;
 
 const colors = {
     borderColor: '#0056e4',
@@ -42,7 +41,7 @@ const colors = {
     </div>
 </div>
 
-<style define:vars={{...colors, maxWidth}}>
+<style define:vars={colors}>
     .window {
         border: 5px solid var(--borderColor);
         border-radius: 5px;
@@ -61,12 +60,8 @@ const colors = {
         overflow: hidden;
     }
 
-    .window[data-window="about"] {
-        background-color: #2b1055;
-    }
-
-    .window[data-window="guestbook"] {
-        background-color: #fff8dc;
+    .window-content, .window-content-fill {
+        background-color: #cecbb7;
     }
 
     .window-header {

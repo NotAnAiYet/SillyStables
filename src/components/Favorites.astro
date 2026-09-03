@@ -1,7 +1,7 @@
 ---
-import Window from '../shared/Window.astro';
-import links from '../../data/links.json';
-import buttons from '../../data/buttons.json';
+import Window from './shared/Window.astro';
+import links from '../data/links.json';
+import buttons from '../data/buttons.json';
 
 interface Badge {
   href: string;
@@ -10,7 +10,7 @@ interface Badge {
 }
 
 const localButtons = import.meta.glob<{ default: ImageMetadata }>(
-  '../../assets/media/buttons/*.{gif,png,jpg,jpeg,webp}',
+  '../assets/media/buttons/*.{gif,png,jpg,jpeg,webp}',
   { eager: true },
 );
 
@@ -25,7 +25,7 @@ const filled = (buttons as Badge[]).flatMap((badge) => {
   return src ? [{ ...badge, src }] : [];
 });
 ---
-<Window title="Favorites - Wordpad" windowId="favorites">
+<Window title="Favorites - Wordpad" icon="bi-file-earmark-text" windowId="favorites">
     <div class="d-flex flex-column gap-3">
         <div>
             <h3 style={{color: "#081BCB"}}>Websites</h3>
