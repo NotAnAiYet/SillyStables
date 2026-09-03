@@ -86,6 +86,8 @@ function initWindow(id: string, win: Win) {
         border: "0.4em"
     });
 
+    winbox.removeControl("wb-full");
+
     if (iconMap[id]) {
         console.log(`Setting icon for window "${id}" to "${iconMap[id]}"`);
         winbox.setIcon(iconMap[id]);
