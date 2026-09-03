@@ -1,11 +1,14 @@
 ---
-import Window from './shared/Window.astro';
 ---
-<Window title="Webring" windowId="webring">
-    <div class="d-flex flex-wrap gap-3">
-        <div id="gfdkris">
-            <script type="text/javascript" src="https://fabstarotcorner.neocities.org/webring/onionring-variables.js"></script>
-            <script type="text/javascript" src="https://fabstarotcorner.neocities.org/webring/onionring-widget.js"></script>
-        </div>
-    </div>
-</Window>
+<div id="gfdkris">
+    <script type="text/javascript" src="https://fabstarotcorner.neocities.org/webring/onionring-variables.js"></script>
+    <script type="text/javascript" src="https://fabstarotcorner.neocities.org/webring/onionring-widget.js"></script>
+</div>
+
+<style>
+    #gfdkris{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+</style>

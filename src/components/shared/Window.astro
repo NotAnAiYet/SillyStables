@@ -1,12 +1,14 @@
 ---
+
 interface Props {
     title: string;
     windowId?: string;
     icon?: string;
     maxWidth?: string;
+    noPadding?: boolean;
 }
 
-const { title, windowId, icon, maxWidth } = Astro.props;
+const { title, windowId, icon, maxWidth, noPadding } = Astro.props;
 
 const colors = {
     borderColor: '#0056e4',
@@ -35,9 +37,9 @@ const colors = {
             </button>
         </div>
     </div>
-    <div class="window-content px-2">
+    <div class:list={['window-content', { 'px-2': !noPadding, 'window-content-fill': noPadding }]}>
         <slot />
-    </div>
+    </div> 
 </div>
 
 <style define:vars={{...colors, maxWidth}}>
@@ -51,6 +53,10 @@ const colors = {
     .window-content {
         position: relative;
         min-height: 100%;
+    }
+
+    .window-content-fill {
+        height: 100%;
     }
 
     .window-header {

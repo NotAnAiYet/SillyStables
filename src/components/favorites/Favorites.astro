@@ -1,0 +1,49 @@
+---
+import Window from '../shared/Window.astro';
+import links from '../../data/links.json';
+import buttons from '../../data/buttons.json';
+
+interface Badge {
+  href: string;
+  src: string;
+  alt: string;
+}
+
+const localButtons = import.meta.glob<{ default: ImageMetadata }>(
+  '../../assets/media/buttons/*.{gif,png,jpg,jpeg,webp}',
+  { eager: true },
+);
+
+function resolveSrc(src: string) {
+  const filename = src.split('/').pop() ?? src;
+  const match = Object.entries(localButtons).find(([path]) => path.endsWith(`/${filename}`));
+  return match?.[1].default.src;
+}
+
+const filled = (buttons as Badge[]).flatMap((badge) => {
+  const src = resolveSrc(badge.src);
+  return src ? [{ ...badge, src }] : [];
+});
+---
+<Window title="Favorites - Wordpad" windowId="favorites">
+    <div class="d-flex flex-column gap-3">
+        <div>
+            <h3 style={{color: "#081BCB"}}>Websites</h3>
+            <div class="d-flex gap-2" role="list">
+                {filled.map((badge) => (
+                    <a class="badge-slot is-filled" href={badge.href} role="listitem">
+                        <img src={badge.src} alt={badge.alt} width="88" height="31" />
+                    </a>
+                ))}
+            </div>
+        </div>
+        <div>
+            <h3 style={{color: "#4977B4"}}>links</h3>
+            <div class="d-flex flex-column gap-1">
+                {links.map((link) => (
+                    <a href={link.url}>{link.title}</a>
+                ))}
+            </div>
+        </div>
+    </div>
+</Window>

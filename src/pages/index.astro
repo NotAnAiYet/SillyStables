@@ -2,18 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import About from '../components/About/About.astro';
 import LastUpdated from '../components/LastUpdated.astro';
-import Webring from '../components/Webring.astro'
+import Webring from '../components/Webring.astro';
+import Guestbook from '../components/Guestbook.astro';
+import Favorites from '../components/favorites/Favorites.astro';
 import DesktopIcons from '../components/DesktopIcons/DesktopIcons.astro';
 import 'winbox/dist/css/winbox.min.css';
 ---
 <BaseLayout title="Silly Stables">
   <DesktopIcons />
+  <Webring />
    <div class="main-content row pt-2 g-4">
     <div class="col-lg-8 d-flex flex-column gap-4">
       <About />
+      <Favorites />
     </div>
     <aside class="d-flex  flex-column col-lg-4 gap-4">
-      <Webring />
+      <Guestbook />
       <LastUpdated />
     </aside>
   </div>

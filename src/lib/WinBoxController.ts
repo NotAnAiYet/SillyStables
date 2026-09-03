@@ -1,5 +1,6 @@
 import WinBox from 'winbox/src/js/winbox.js';
 import ie from '../assets/media/icons/ie.ico';
+import wordpad from '../assets/media/icons/Wordpad.png'
 import textDoc from '../assets/media/icons/Text-Doc.png';
 
 type Win = {
@@ -15,7 +16,8 @@ const backgroundColor = '#0056e4';
 
 const iconMap: Record<string, string> = {
     "about": ie,
-    "webring": ie,
+    "guestbook": ie,
+    "favorites": wordpad.src,
     "last-updated": textDoc.src,
 };
 
@@ -53,7 +55,7 @@ export class WinBoxController {
 }
 
 export function initWinBoxStartup(windows: Map<string, Win> = new Map()) {
-    const defaultOpen: ReadonlySet<string> = new Set(['about', 'last-updated', 'webring']);
+    const defaultOpen: ReadonlySet<string> = new Set(['about', 'last-updated', 'favorites', 'guestbook']);
 
     windows.forEach((win, id) => {
         if (defaultOpen.has(id)) {
