@@ -11,7 +11,7 @@ import 'winbox/dist/css/winbox.min.css';
 <BaseLayout title="Silly Stables ~ Welcome">
   <DesktopIcons />
   <Webring />
-   <div class="main-content row pt-2 g-4">
+   <div class="main-content row g-4">
     <div class="col-lg-8 d-flex flex-column gap-4">
       <About />
       <Favorites />
@@ -26,15 +26,6 @@ import 'winbox/dist/css/winbox.min.css';
     <script src="https://louisabraham.github.io/nekojs/neko.js" data-autostart></script>
   </Fragment>
 </BaseLayout>
-
-<style>
-    @media (min-width: 992px) {
-        .main-content {
-          margin-top: 1rem;
-        }
-
-    }
-</style>
 
 <script>
     import { WinBoxController } from '../lib/WinBoxController.ts';
