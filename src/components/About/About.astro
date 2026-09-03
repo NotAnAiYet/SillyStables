@@ -10,7 +10,6 @@ import catBlush from '../../assets/media/pixels/catBlush.gif'
 import parappa from '../../assets/media/pixels/parappa.gif'
 import horsey from '../../assets/media/pixels/horsey.gif'
 
-const intro = "I'm a collector of weird ideas and lover of horses.";
 const listItems = [
         {bullet: blackSkull.src, html: 'Currently learning: how to ride without looking like an idiot'},
         {bullet: blackStar.src, html: 'Recent Obsession: Horse Magnifier: The Full Horse'},
@@ -28,7 +27,7 @@ const buttonUrl = Astro.site ? new URL(buttonSrc, Astro.site).href : buttonSrc;
                 <Title />
             </div>
             <div class="aboutContainer">
-                <p> Welcome! <img src={wave.src}/> {intro} <img src={catBlush.src}/> </p>
+                <p> Welcome to my Silly Stables! <img src={wave.src}/> </p>
                 <p>This page is my little playground where I explore the intersection of nostalgia and modern web development. <br /> I build things on the web, study for my bachelor, go riding and believe in silly ideas making the world a bit brighter. <img src={parappa.src} /></p>      
                 <ul>
                     {listItems.map((item) => (
