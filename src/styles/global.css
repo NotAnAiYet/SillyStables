@@ -29,3 +29,7 @@ a {
 .wb-close {
     background-position: center!important;
 }
+
+.wb-body > .window-content {
+    height: 100%;
+}

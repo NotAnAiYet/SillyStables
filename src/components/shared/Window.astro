@@ -19,7 +19,7 @@ const colors = {
 };
 ---
 
-<div data-window={windowId} class="window pb-2">
+<div data-window={windowId} class="window">
     <div class="window-header px-1 pb-1 d-flex align-items-center justify-content-between">
         <div class="pe-4">
             {icon && <i class={`bi ${icon} me-2`}></i>}
@@ -37,9 +37,9 @@ const colors = {
             </button>
         </div>
     </div>
-    <div class:list={['window-content', { 'px-2': !noPadding, 'window-content-fill': noPadding }]}>
+    <div class:list={['window-content', { 'px-2 pb-2': !noPadding, 'window-content-fill': noPadding }]}>
         <slot />
-    </div> 
+    </div>
 </div>
 
 <style define:vars={{...colors, maxWidth}}>
@@ -48,18 +48,30 @@ const colors = {
         border-radius: 5px;
         background-color: var(--backgroundColor);
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
     }
 
     .window-content {
         position: relative;
-        min-height: 100%;
+        isolation: isolate;
     }
 
     .window-content-fill {
-        height: 100%;
+        min-height: 25em;
+        overflow: hidden;
+    }
+
+    .window[data-window="about"] {
+        background-color: #2b1055;
+    }
+
+    .window[data-window="guestbook"] {
+        background-color: #fff8dc;
     }
 
     .window-header {
+        position: relative;
+        z-index: 1;
         background-color: var(--borderColor);
         color: var(--headerTextColor);
     }
