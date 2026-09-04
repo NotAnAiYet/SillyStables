@@ -22,7 +22,7 @@ const buttonUrl = Astro.site ? new URL(buttonSrc, Astro.site).href : buttonSrc;
 <Window title="Silly Stables - About" icon="bi-globe" windowId="about" noPadding>
     <div class="about">
         <div class="retro-bg" aria-hidden="true"></div>
-        <div class="about-body">
+        <div class="d-inline-flex flex-column align-items-center about-body">
             <div class="d-flex justify-content-center pt-1 pb-2 px-2">
                 <Title />
             </div>
@@ -53,6 +53,9 @@ const buttonUrl = Astro.site ? new URL(buttonSrc, Astro.site).href : buttonSrc;
     }
 
     .about-body {
+        width: 100%;
+        height: 100%;
+        gap: 1em;
         position: relative;
         z-index: 1;
     }
